@@ -1,0 +1,9 @@
+[project]
+name = "uv-example"
+version = "0.1.0"
+description = "My uv Example Project"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]==0.115.5",
+    "pytest==8.3.3",
+]

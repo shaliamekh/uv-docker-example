@@ -1,0 +1,16 @@
+---
+services:
+  uv-example:
+    container_name: uv-example
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ../src:/home/uv-example-user/src
+    ports:
+      - 8010:8000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "localhost:8000/healthcheck"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
