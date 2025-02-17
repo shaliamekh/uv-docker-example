@@ -1,4 +1,4 @@
-FROM python:3.13.0-slim
+FROM python:3.13.2-slim
 
 ENV USER=uv-example-user \
     PYTHONDONTWRITEBYTECODE=1 \
@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     && rm -rf /var/lib/apt/lists/* \
     && useradd -m -s /bin/bash $USER
 
-COPY --from=ghcr.io/astral-sh/uv:0.5.5 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.6.0 /uv /uvx /bin/
 
 ENV APP_DIR=/home/$USER/src
 WORKDIR $APP_DIR
